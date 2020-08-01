@@ -9,7 +9,23 @@
 namespace App\Http\Controllers;
 
 
+use App\Services\BookService;
+
 class BookController extends CoreController
 {
+    protected $BookService;
+
+
+    public function __construct(BookService $BookService)
+    {
+        $this->BookService = $BookService;
+    }
+
+
+    public function index()
+    {
+        
+    }
+    
 
 }
