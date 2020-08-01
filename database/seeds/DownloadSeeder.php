@@ -23,6 +23,11 @@ class DownloadSeeder extends Seeder
                 'filepath'    =>    'downloads/two.zip',
                 'price'            =>    1000,
             ),
+            array(
+                'name'            =>    'Sample download 3',
+                'filepath'    =>    'downloads/three.zip',
+                'price'            =>    3000,
+            ),
         );
 
         foreach ($data as $properties) {

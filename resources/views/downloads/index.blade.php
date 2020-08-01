@@ -22,7 +22,11 @@
 
         </tr>
         @endforeach
+
+
         </tbody>
     </table>
+    {{$downloads->render()}}
+
 
 @endsection
