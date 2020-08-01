@@ -15,6 +15,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('downloads/index', 'DownloadController@index')->middleware('auth');
+Route::post('/buy/{id}','DownloadController@addOrder')->middleware('auth');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
