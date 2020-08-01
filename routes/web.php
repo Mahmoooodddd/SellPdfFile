@@ -16,19 +16,6 @@ Route::get('/', function () {
 });
 
 
-Route::get('downloads/index', 'DownloadController@index')->middleware('auth');
-Route::post('/buy/{id}','DownloadController@addOrder')->middleware('auth');
-
-
-
-
-
-
-
-
-
-
-
 
 
 
