@@ -11,5 +11,11 @@ namespace App\Repositories;
 
 class BookRepository extends CoreRepository
 {
+    public function getBooksByPaginations()
+    {
+
+        dd('salam');
+        
+    }
 
 }

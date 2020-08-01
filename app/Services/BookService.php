@@ -24,7 +24,7 @@ class BookService
 
     public function getBookList()
     {
-        dd('test');
+        $this->bookRepository->getBooksByPaginations();
     }
 
 }
