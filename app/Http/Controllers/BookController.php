@@ -13,18 +13,18 @@ use App\Services\BookService;
 
 class BookController extends CoreController
 {
-    protected $BookService;
+    protected $bookService;
 
 
-    public function __construct(BookService $BookService)
+    public function __construct(BookService $bookService)
     {
-        $this->BookService = $BookService;
+        $this->bookService = $bookService;
     }
-
 
     public function index()
     {
-        
+        $this->bookService->getBookList();
+
     }
     
 
