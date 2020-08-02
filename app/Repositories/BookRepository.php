@@ -9,8 +9,20 @@
 namespace App\Repositories;
 
 
+use App\Book;
+
 class BookRepository extends CoreRepository
 {
+
+    protected $books;
+
+    public function __construct(Book $books)
+    {
+        $this->books = $books;
+
+    }
+
+
     public function getBooksByPaginations()
     {
 
