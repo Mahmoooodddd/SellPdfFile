@@ -9,6 +9,7 @@
 namespace App\Services;
 
 
+use App\Book;
 use App\Repositories\BookRepository;
 
 class BookService
@@ -24,7 +25,7 @@ class BookService
 
     public function getBookList()
     {
-        $this->bookRepository->getBooksByPaginations();
+        return $this->bookRepository->getBooksByPaginations();
     }
 
 }

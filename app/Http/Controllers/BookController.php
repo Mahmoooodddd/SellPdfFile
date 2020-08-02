@@ -23,7 +23,11 @@ class BookController extends CoreController
 
     public function index()
     {
+
+
+
         $this->bookService->getBookList();
+        dd('salam');
 
     }
     
