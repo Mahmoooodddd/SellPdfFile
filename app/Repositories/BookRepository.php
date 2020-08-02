@@ -25,7 +25,8 @@ class BookRepository extends CoreRepository
 
     public function getBooksByPaginations()
     {
-        $books = Book::all();
+        $books = $this->books->all();
+        return $books;
         
     }
 
