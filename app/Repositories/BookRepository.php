@@ -11,6 +11,7 @@ namespace App\Repositories;
 
 use App\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BookRepository extends CoreRepository
 {
@@ -26,9 +27,13 @@ class BookRepository extends CoreRepository
 
     public function getBooksByPaginations($page,$name)
     {
+        if ($name!="") {
 
-        $books=Book::latest()->paginate(2);
+            Book::where('name', 'like', '%' . $name . '%')->get();
 
+    }
+
+        $books = DB::table('books')->skip($page* 10)->take(10)->get();
 //        $books = $this->books->all();
         return $books;
 
