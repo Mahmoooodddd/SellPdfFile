@@ -30,6 +30,11 @@ class BookController extends CoreController
         return $this->bookService->getBookList($page,$name);
 
     }
+
+    public function detail($id)
+    {
+        return $this->bookService->getBookDetail($id);
+    }
     
 
 }

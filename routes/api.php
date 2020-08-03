@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('/book','BookController@index');
+Route::get('/book/detail/{id}','BookController@detail');

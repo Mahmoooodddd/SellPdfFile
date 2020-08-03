@@ -30,4 +30,10 @@ class BookService
 
     }
 
+    public function getBookDetail($id)
+    {
+        return $this->bookRepository->getBooksId($id);
+
+    }
+
 }
