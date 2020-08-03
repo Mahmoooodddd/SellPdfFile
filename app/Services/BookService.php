@@ -26,7 +26,7 @@ class BookService
 
     public function getBookList($page,$name)
     {
-        return $this->bookRepository->getBooksByPaginations();
+        return $this->bookRepository->getBooksByPaginations($page,$name);
 
     }
 

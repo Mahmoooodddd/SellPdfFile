@@ -24,7 +24,7 @@ class BookRepository extends CoreRepository
     }
 
 
-    public function getBooksByPaginations()
+    public function getBooksByPaginations($page,$name)
     {
 
         $books=Book::latest()->paginate(2);
