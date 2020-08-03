@@ -11,12 +11,14 @@ namespace App\Services;
 
 use App\Book;
 use App\Repositories\BookRepository;
+use App\Traits\serviceResponseTrait;
 use Illuminate\Http\Request;
 
 class BookService
 {
-    protected $bookRepository;
 
+    use serviceResponseTrait;
+    protected $bookRepository;
 
     public function __construct(BookRepository $bookRepository)
     {
@@ -32,6 +34,11 @@ class BookService
 
     public function getBookDetail($id)
     {
+        if (!($book= $this->bookRepository->getBooksId($id))) {
+
+            return $this->error(404, "not found");
+        }
+
         return $this->bookRepository->getBooksId($id);
 
     }

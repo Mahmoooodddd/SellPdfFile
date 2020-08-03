@@ -9,7 +9,7 @@
 namespace App\Traits;
 
 
-class serviceResponseTrait
+trait serviceResponseTrait
 {
     public function error($statusCode,$message)
     {
