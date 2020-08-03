@@ -28,7 +28,17 @@ class BookService
 
     public function getBookList($page,$name)
     {
-        return $this->bookRepository->getBooksByPaginations($page,$name);
+        $books =$this->bookRepository->getBooksByPaginations($page,$name);
+        $data = [];
+        foreach ($books as $book) {
+            $data[] = [
+                'name' => $book->name,
+                'price' => $book->price,
+            ];
+
+//            return $this->bookRepository->getBooksByPaginations($page,$name);
+        }
+        return $this->success($data);
 
     }
 

@@ -29,12 +29,10 @@ class BookRepository extends CoreRepository
     {
         if ($name!="") {
 
-            Book::where('name', 'like', '%' . $name . '%')->get();
-
+            Book::where('name', 'like', '%' . $name . '%')->skip($page* 10)->take(10)->get();
     }
 
         $books = DB::table('books')->skip($page* 10)->take(10)->get();
-//        $books = $this->books->all();
         return $books;
 
     }
