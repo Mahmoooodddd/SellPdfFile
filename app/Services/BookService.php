@@ -34,12 +34,19 @@ class BookService
 
     public function getBookDetail($id)
     {
-        if (!($book= $this->bookRepository->getBooksId($id))) {
+        $book= $this->bookRepository->getBookById($id);
+
+        if (!$book) {
 
             return $this->error(404, "not found");
         }
+         $data = [
+            'name' => $book->name,
+            'price' => $book->price,
+             ];
+        return $this->success($data);
 
-        return $this->bookRepository->getBooksId($id);
+//        return $this->bookRepository->getBooksId($id);
 
     }
 

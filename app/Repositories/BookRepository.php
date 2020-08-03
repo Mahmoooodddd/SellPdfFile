@@ -40,7 +40,7 @@ class BookRepository extends CoreRepository
     }
 
 
-    public function getBooksId($id)
+    public function getBookById($id)
     {
         $book = $this->books->find($id);
         return $book;

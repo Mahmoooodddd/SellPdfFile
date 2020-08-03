@@ -23,4 +23,14 @@ trait serviceResponseTrait
             "statusCode" => $statusCode
         ];
     }
+
+
+    public function success($data)
+    {
+        return [
+            "data" => $data,
+            "statusCode" => 200
+            ];
+        
+    }
 }
