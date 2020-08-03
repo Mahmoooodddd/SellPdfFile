@@ -11,6 +11,7 @@ namespace App\Services;
 
 use App\Book;
 use App\Repositories\BookRepository;
+use Illuminate\Http\Request;
 
 class BookService
 {
@@ -23,7 +24,7 @@ class BookService
     }
 
 
-    public function getBookList()
+    public function getBookList($page,$name)
     {
         return $this->bookRepository->getBooksByPaginations();
 

@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 
 use App\Services\BookService;
+use Illuminate\Http\Request;
 
 class BookController extends CoreController
 {
@@ -21,10 +22,12 @@ class BookController extends CoreController
         $this->bookService = $bookService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $page = $request->input('page');
+        $name = $request->input('name');
 
-        dd($this->bookService->getBookList());
+        return $this->bookService->getBookList($page,$name);
 
     }
     

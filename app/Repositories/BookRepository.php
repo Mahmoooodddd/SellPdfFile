@@ -10,6 +10,7 @@ namespace App\Repositories;
 
 
 use App\Book;
+use Illuminate\Http\Request;
 
 class BookRepository extends CoreRepository
 {
@@ -25,9 +26,12 @@ class BookRepository extends CoreRepository
 
     public function getBooksByPaginations()
     {
-        $books = $this->books->all();
+
+        $books=Book::latest()->paginate(2);
+
+//        $books = $this->books->all();
         return $books;
-        
+
     }
 
 }
