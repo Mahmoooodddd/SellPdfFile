@@ -33,7 +33,8 @@ class BookController extends CoreController
 
     public function detail($id)
     {
-        return $this->bookService->getBookDetail($id);
+        $result= $this->bookService->getBookDetail($id);
+        return $result;
     }
     
 
