@@ -36,4 +36,10 @@ class AuthorRepository
 
     }
 
+    public function getAuthorById($id)
+    {
+        $author = $this->authors->books()->find($id);
+        return $author;
+    }
+
 }

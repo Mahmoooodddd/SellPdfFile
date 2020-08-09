@@ -22,3 +22,4 @@ Route::get('/book','BookController@index');
 Route::get('/book/detail/{id}','BookController@detail');
 
 Route::get('/author','AuthorController@index');
+Route::get('/author/detail/{id}','AuthorController@detail');

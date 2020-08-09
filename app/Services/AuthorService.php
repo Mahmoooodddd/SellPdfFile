@@ -27,4 +27,12 @@ class AuthorService
         return $this->authorRepository->getAuthorsByPaginations($name,$page);
     }
 
+
+    public function getAuthorDetail($id)
+    {
+        $author= $this->authorRepository->getAuthorById($id);
+        return $author;
+
+
+    }
 }

@@ -22,4 +22,10 @@ class AuthorController extends Controller
         return $this->authorService->getAuthorList($name,$page);
 
     }
+
+    public function detail($id)
+    {
+        return $this->authorService->getAuthorDetail($id);
+
+    }
 }
