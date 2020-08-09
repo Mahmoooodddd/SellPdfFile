@@ -13,7 +13,7 @@ class CoreController extends Controller
 {
     public function response($result)
     {
-        return $this->response($result,$result['statusCode']);
+        return response()->json($result,$result['statusCode']);
     }
 
 }

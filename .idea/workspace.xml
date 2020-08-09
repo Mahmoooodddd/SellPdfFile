@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6c303687-21b8-4ac4-90b0-d93097e0e8a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BookController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CoreController.php" afterDir="false" />
-    </list>
+    <list default="true" id="6c303687-21b8-4ac4-90b0-d93097e0e8a8" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CoreController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+            <state relative-caret-position="165">
+              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -78,7 +74,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Traits/serviceResponseTrait.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
@@ -358,12 +354,12 @@
       <workItem from="1596431890386" duration="28634000" />
       <workItem from="1596518563780" duration="1290000" />
       <workItem from="1596608838968" duration="3073000" />
-      <workItem from="1596959113379" duration="1858000" />
+      <workItem from="1596959113379" duration="2109000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91491000" />
+    <option name="totallyTimeSpent" value="91742000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
@@ -516,13 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CoreController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -536,16 +525,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/CoreRepository.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/BookRepository.php">
+    <entry file="file://$PROJECT_DIR$/app/Traits/serviceResponseTrait.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="31" column="70" selection-start-line="31" selection-start-column="70" selection-end-line="31" selection-end-column="70" />
-          <folding>
-            <element signature="e#119#132#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="345">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -559,10 +542,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Traits/serviceResponseTrait.php">
+    <entry file="file://$PROJECT_DIR$/app/Repositories/BookRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+        <state relative-caret-position="232">
+          <caret line="31" column="70" selection-start-line="31" selection-start-column="70" selection-end-line="31" selection-end-column="70" />
+          <folding>
+            <element signature="e#119#132#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/CoreRepository.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CoreController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
         </state>
       </provider>
     </entry>
