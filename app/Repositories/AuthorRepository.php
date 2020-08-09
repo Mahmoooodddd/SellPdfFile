@@ -9,11 +9,24 @@
 namespace App\Repositories;
 
 
+use App\Author;
+
 class AuthorRepository
 {
+
+    protected $authors;
+
+    public function __construct(Author $authors)
+    {
+        $this->authors = $authors;
+
+    }
+
+
     public function getAuthorsByPaginations()
     {
-        dd('khobi daeii??');
+        $authors = $this->authors::all();
+        return $authors;
         
     }
 
