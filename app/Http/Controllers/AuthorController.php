@@ -19,7 +19,9 @@ class AuthorController extends Controller
         $page = $request->input('page');
         $name = $request->input('name');
 
-        return $this->authorService->getAuthorList($name,$page);
+        $result =$this->authorService->getAuthorList($name,$page);
+        return $this->response($result);
+
 
     }
 
