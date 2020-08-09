@@ -14,9 +14,12 @@ class AuthorController extends Controller
         $this->authorService = $authorService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return $this->authorService->getAuthorList();
+        $page = $request->input('page');
+        $name = $request->input('name');
+
+        return $this->authorService->getAuthorList($name,$page);
 
     }
 }

@@ -22,9 +22,9 @@ class AuthorService
 
 
 
-    public function getAuthorList()
+    public function getAuthorList($name,$page)
     {
-        return $this->authorRepository->getAuthorsByPaginations();
+        return $this->authorRepository->getAuthorsByPaginations($name,$page);
     }
 
 }

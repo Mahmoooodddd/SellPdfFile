@@ -10,6 +10,7 @@ namespace App\Repositories;
 
 
 use App\Author;
+use Illuminate\Support\Facades\DB;
 
 class AuthorRepository
 {
@@ -23,11 +24,16 @@ class AuthorRepository
     }
 
 
-    public function getAuthorsByPaginations()
+    public function getAuthorsByPaginations($name,$page)
     {
-        $authors = $this->authors::all();
+        if ($name!="") {
+
+            Author::where('name', 'like', '%' . $name . '%')->skip($page* 10)->take(10)->get();
+        }
+
+        $authors = DB::table('authors')->skip($page* 10)->take(10)->get();
         return $authors;
-        
+
     }
 
 }
