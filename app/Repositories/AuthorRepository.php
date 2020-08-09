@@ -12,7 +12,7 @@ namespace App\Repositories;
 use App\Author;
 use Illuminate\Support\Facades\DB;
 
-class AuthorRepository
+class AuthorRepository extends CoreRepository
 {
 
     protected $authors;

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\AuthorService;
 use Illuminate\Http\Request;
 
-class AuthorController extends Controller
+class AuthorController extends CoreController
 {
     protected $authorService;
 
