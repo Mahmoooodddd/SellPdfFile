@@ -26,8 +26,9 @@ class BookController extends CoreController
     {
         $page = $request->input('page');
         $name = $request->input('name');
+        $authorId = $request->input('author_id');
 
-        $result =$this->bookService->getBookList($page,$name);
+        $result =$this->bookService->getBookList($page,$name,$authorId);
         return $this->response($result);
 
     }

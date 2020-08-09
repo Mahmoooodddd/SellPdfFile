@@ -38,7 +38,7 @@ class AuthorRepository extends CoreRepository
 
     public function getAuthorById($id)
     {
-        $author = $this->authors->books()->find($id);
+        $author = $this->authors->find($id);
         return $author;
     }
 
