@@ -9,7 +9,22 @@
 namespace App\Services;
 
 
+use App\Repositories\AuthorRepository;
+
 class AuthorService
 {
+    protected $authorRepository;
+
+    public function __construct(AuthorRepository $authorRepository)
+    {
+        $this->authorRepository = $authorRepository;
+    }
+
+
+
+    public function getAuthorList()
+    {
+        return $this->authorRepository->getAuthorsByPaginations();
+    }
 
 }

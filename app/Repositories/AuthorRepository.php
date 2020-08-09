@@ -11,5 +11,10 @@ namespace App\Repositories;
 
 class AuthorRepository
 {
+    public function getAuthorsByPaginations()
+    {
+        dd('khobi daeii??');
+        
+    }
 
 }
