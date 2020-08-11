@@ -45,9 +45,19 @@ class AuthorService
 
             return $this->error(404, "not found");
         }
-        $data = [
-            'name' => $author->name,
-        ];
+        $books =$author->books;
+        $booksData = [];
+        foreach ($books as $book) {
+            $booksData[]= [
+                'id' => $book->id,
+                'name' => $book->name,
+            ];
+        }
+            $data = [
+                'name' => $author->name,
+                "books" => $booksData,
+            ];
+
         return $this->success($data);
 //        $author= $this->authorRepository->getAuthorById($id);
 //        return $author;
