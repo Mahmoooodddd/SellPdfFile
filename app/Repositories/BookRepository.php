@@ -27,21 +27,16 @@ class BookRepository extends CoreRepository
 
     public function getBooksByPaginations($page, $name, $authorId)
     {
-        if ($name != "") {
-
-            Book::where('name', 'like', '%' . $name . '%')->skip($page * 10)->take(10)->get();
-
-        }
-        if ($authorId !== "") {
-
-            Book::Where('author_id', '=' ,$authorId)->skip($page * 10)->take(10)->get();
-
-        }
-
         $books = DB::table('books')
             ->join('authors', 'books.author_id', '=', 'authors.id')
-            ->select('books.*', 'authors.name as authorName')
-            ->skip($page * 10)->take(10)->get();
+            ->select('books.*', 'authors.name as authorName');
+        if ($name != "") {
+            $books->where('books.name', 'like', '%' . $name . '%');
+        };
+        if ($authorId !== "") {
+            $books->where('author_id', '=' ,$authorId);
+        }
+        $books =$books->skip($page * 10)->take(10)->get();
         return $books;
 
     }
