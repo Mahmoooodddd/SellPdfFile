@@ -33,7 +33,7 @@ class BookRepository extends CoreRepository
         if ($name != "") {
             $books->where('books.name', 'like', '%' . $name . '%');
         };
-        if ($authorId !== "") {
+        if ($authorId != "") {
             $books->where('author_id', '=' ,$authorId);
         }
         $books =$books->skip($page * 10)->take(10)->get();

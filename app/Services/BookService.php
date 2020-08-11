@@ -53,6 +53,7 @@ class BookService
          $data = [
             'name' => $book->name,
             'price' => $book->price,
+             'authorName' => $book->author->name,
              ];
         return $this->success($data);
 
