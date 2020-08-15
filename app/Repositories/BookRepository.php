@@ -48,4 +48,10 @@ class BookRepository extends CoreRepository
         return $book;
     }
 
+    public function getBooksByIds($ids)
+    {
+        $books = $this->books->whereIn('id', $ids)->get();
+        return $books;
+    }
+
 }

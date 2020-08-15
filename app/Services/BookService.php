@@ -67,4 +67,10 @@ class BookService
         
     }
 
+    public function getBooksByIds($ids)
+    {
+        return $this->bookRepository->getBooksByIds($ids);
+
+    }
+
 }

@@ -14,8 +14,13 @@ class basketController extends CoreController
         $this->basketService = $basketService;
     }
 
+    public function index()
+    {
+       return $this->basketService->getBasketBook();
+    }
+
     public function add($id)
     {
-        $this->basketService->addToBasket($id);
+        return $this->basketService->addToBasket($id);
     }
 }

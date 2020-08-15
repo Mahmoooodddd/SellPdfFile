@@ -7,6 +7,8 @@
  */
 
 namespace App\Services;
+
+use App\Book;
 use App\Traits\serviceResponseTrait;
 use Illuminate\Session\Store;
 use Illuminate\Support\Facades\Session;
@@ -18,33 +20,50 @@ class BasketService
     protected $bookService;
 
 
-    public function __construct(Store $session,BookService $bookService)
+    public function __construct(Store $session, BookService $bookService)
     {
 
-        $this->session =$session;
+        $this->session = $session;
         $this->bookService = $bookService;
+    }
+
+    public function getBasketBook()
+    {
+        $ids = $this->session->get('ids');
+        if (!$ids || empty($ids)) {
+            return $this->success([]);
+        }
+        $books = $this->bookService->getBooksByIds($ids);
+        $booksData = [];
+        foreach ($books as $book) {
+            $booksData[] = [
+                'name' => $book->name
+            ];
+        }
+        return $this->success($booksData);
+
     }
 
 
     public function addToBasket($id)
     {
-        $book= $this->bookService->getBookById($id);
+        $book = $this->bookService->getBookById($id);
 
         if (!$book) {
 
             return $this->error(404, "not found");
         }
 
-        $ids =$this->session->get('ids');
-        if(!$ids || empty($ids)){
-            $ids=[];
-            $ids[]=$id;
-        }else{
-            if(!in_array($id,$ids)){
-                $ids[]=$id;
+        $ids = $this->session->get('ids');
+        if (!$ids || empty($ids)) {
+            $ids = [];
+            $ids[] = $id;
+        } else {
+            if (!in_array($id, $ids)) {
+                $ids[] = $id;
             }
         }
-        $this->session->put('ids',$ids);
+        $this->session->put('ids', $ids);
         return $this->success([]);
 
     }

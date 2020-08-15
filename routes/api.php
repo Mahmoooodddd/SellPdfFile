@@ -25,4 +25,5 @@ Route::get('/author','AuthorController@index');
 Route::get('/author/detail/{id}','AuthorController@detail');
 
 
+Route::get('/basket','BasketController@index');
 Route::post('/basket/{id}','BasketController@add');
