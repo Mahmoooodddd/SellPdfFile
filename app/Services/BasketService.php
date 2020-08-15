@@ -15,15 +15,26 @@ class BasketService
 {
     use serviceResponseTrait;
     protected $session;
-    
-    public function __construct(Store $session){
+    protected $bookService;
+
+
+    public function __construct(Store $session,BasketService $bookService)
+    {
 
         $this->session =$session;
+        $this->bookService = $bookService;
     }
 
 
     public function addToBasket($id)
     {
+        $book= $this->bookService->getBookById($id);
+
+        if (!$book) {
+
+            return $this->error(404, "not found");
+        }
+
         $ids =$this->session->get('ids');
         if(!$ids || empty($ids)){
             $ids=[];
@@ -34,7 +45,7 @@ class BasketService
             }
         }
         $this->session->put('ids',$ids);
-        return $this->success();
+        return $this->success([]);
 
     }
 }
