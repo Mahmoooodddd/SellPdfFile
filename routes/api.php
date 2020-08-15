@@ -23,3 +23,6 @@ Route::get('/book/detail/{id}','BookController@detail');
 
 Route::get('/author','AuthorController@index');
 Route::get('/author/detail/{id}','AuthorController@detail');
+
+
+Route::post('/basket','BasketController@add');
