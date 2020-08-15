@@ -61,9 +61,9 @@ class BookService
 
     }
 
-    public function getBookById()
+    public function getBookById($id)
     {
-        return $this->bookRepository->getBookById();
+        return $this->bookRepository->getBookById($id);
         
     }
 

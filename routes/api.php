@@ -25,4 +25,4 @@ Route::get('/author','AuthorController@index');
 Route::get('/author/detail/{id}','AuthorController@detail');
 
 
-Route::post('/basket','BasketController@add');
+Route::post('/basket/{id}','BasketController@add');

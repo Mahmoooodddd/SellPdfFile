@@ -18,7 +18,7 @@ class BasketService
     protected $bookService;
 
 
-    public function __construct(Store $session,BasketService $bookService)
+    public function __construct(Store $session,BookService $bookService)
     {
 
         $this->session =$session;
