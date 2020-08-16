@@ -96,4 +96,9 @@ class BasketService
 
 
     }
+
+    public function removeBasket()
+    {
+        $this->session->remove('ids');
+    }
 }

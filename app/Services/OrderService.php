@@ -30,15 +30,19 @@ class OrderService
     {
         $books = $this->basketService->getBasketBook();
         $order = new Order();
-        $order->user_id = $user->id;
+        $order->user_id = 1;
         $order->save();
         $booksData = $books['data'];
+        if (!$booksData || empty($booksData)){
+            return $this->error('empty basket',200);
+        }
         foreach ($booksData as $book){
             $orderBook = new OrderBook();
             $orderBook->book_id = $book['id'];
             $orderBook->order_id = $order->id;
             $orderBook->save();
         }
+        $this->basketService->removeBasket();
         return $this->success([]);
 
     }
