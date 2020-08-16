@@ -23,4 +23,9 @@ class basketController extends CoreController
     {
         return $this->basketService->addToBasket($id);
     }
+
+    public function delete($id)
+    {
+      return $this->basketService->deleteFromBasket($id);
+    }
 }

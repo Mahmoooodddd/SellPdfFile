@@ -53,7 +53,6 @@ class BasketService
 
             return $this->error(404, "not found");
         }
-
         $ids = $this->session->get('ids');
         if (!$ids || empty($ids)) {
             $ids = [];
@@ -65,6 +64,35 @@ class BasketService
         }
         $this->session->put('ids', $ids);
         return $this->success([]);
+
+    }
+
+    public function deleteFromBasket($id)
+    {
+        $book = $this->bookService->getBookById($id);
+
+        if (!$book) {
+
+            return $this->error(404, "not found");
+        }
+
+        $ids = $this->session->get('ids');
+        if (!$ids || empty($ids)) {
+            $ids = [];
+            $ids[] = $id;
+        } else {
+            if (!in_array($id, $ids)) {
+                $ids[] = $id;
+            }
+        }
+        foreach ($ids as $key => $value){
+            if ($value == $id){
+                unset($ids[$key]);
+            }
+        }
+        $this->session->put('ids', $ids);
+        return $this->success([]);
+
 
     }
 }
