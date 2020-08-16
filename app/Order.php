@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class Order extends Model
 {
-    public function author()
+    public function user()
     {
-        return $this->belongsTo('App\Author');
+        return $this->belongsTo('App\User');
     }
-
-    public function orderBook()
+    
+    public function orderBooks()
     {
         return $this->hasMany('App\OrderBook');
     }

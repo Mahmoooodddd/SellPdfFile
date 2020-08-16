@@ -26,5 +26,7 @@ Route::get('/author/detail/{id}','AuthorController@detail');
 
 
 Route::get('/basket','BasketController@index');
-Route::post('/basket/add/{id}','BasketController@add');
+Route::post('/basket/{id}','BasketController@add');
 Route::delete('/basket/delete/{id}','BasketController@delete');
+
+Route::get('/order/create','OrderController@create')->middleware('auth');

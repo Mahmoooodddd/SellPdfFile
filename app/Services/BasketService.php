@@ -37,7 +37,8 @@ class BasketService
         $booksData = [];
         foreach ($books as $book) {
             $booksData[] = [
-                'name' => $book->name
+                'name' => $book->name,
+                'id' => $book->id
             ];
         }
         return $this->success($booksData);

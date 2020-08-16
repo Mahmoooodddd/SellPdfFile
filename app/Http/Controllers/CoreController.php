@@ -9,6 +9,8 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\Support\Facades\Auth;
+
 class CoreController extends Controller
 {
     public function response($result)
@@ -16,4 +18,8 @@ class CoreController extends Controller
         return response()->json($result,$result['statusCode']);
     }
 
+    public function getUser()
+    {
+        return Auth::user();
+    }
 }
