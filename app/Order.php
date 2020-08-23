@@ -15,4 +15,9 @@ class Order extends Model
     {
         return $this->hasMany('App\OrderBook');
     }
+
+    public function payment()
+    {
+        return $this->hasOne('App\Payment');
+    }
 }
