@@ -15,6 +15,13 @@ class OrderController extends CoreController
         $this->orderService = $orderService;
     }
 
+    public function index()
+    {
+        $user =$this->getUser();
+        $result =$this->orderService->getUserOrdersList($user);
+        return $this->response($result);
+    }
+
     public function create()
     {
         $user=$this->getUser();

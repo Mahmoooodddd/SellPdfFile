@@ -10,7 +10,7 @@ class OrderBook extends Model
     {
        return $this->belongsTo('App\Order');
     }
-    public function Book()
+    public function book()
     {
         return $this->belongsTo('App\Book');
 

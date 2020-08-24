@@ -11,6 +11,7 @@ namespace App\Services;
 
 use App\Order;
 use App\OrderBook;
+use App\Repositories\OrderRepository;
 use App\Traits\serviceResponseTrait;
 
 class OrderService
@@ -19,13 +20,15 @@ class OrderService
     protected $basketService;
     protected $bookService;
     protected $paymentService;
+    protected $orderRepository;
 
 
-    public function __construct(BasketService $basketService,BookService $bookService,PaymentService $paymentService)
+    public function __construct(BasketService $basketService,BookService $bookService,PaymentService $paymentService,OrderRepository $orderRepository)
     {
         $this->basketService = $basketService;
         $this->bookService = $bookService;
         $this->paymentService = $paymentService;
+        $this->orderRepository = $orderRepository;
     }
 
     public function createOrder($user)
@@ -57,6 +60,35 @@ class OrderService
     {
         $order->status = $paymentStatus;
         $order->save();
+    }
+
+    public function getUserOrdersList($user)
+    {
+        $orders=$this->orderRepository->getUserOrders($user);
+        $finalOrders=[];
+
+        foreach ($orders as $order){
+            $books=[];
+            $orderId = $order->id;
+            $orderBooks=$order->orderBooks;
+            foreach ($orderBooks as $orderBook){
+                $books[]=[
+                  'id' => $orderBook->book->id,
+                'name' => $orderBook->book->name,
+                  'price' => $orderBook->book->price,
+                ];
+            }
+            $finalOrders[]=[
+                'orderId' => $order->id,
+                'books' => $books,
+            ];
+
+
+        }
+        return $this->success($finalOrders);
+
+
+
     }
 
 }

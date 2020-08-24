@@ -30,6 +30,11 @@ Route::post('/basket/{id}','BasketController@add');
 Route::delete('/basket/delete/{id}','BasketController@delete');
 
 Route::post('/order/create','OrderController@create')->middleware('auth');
+Route::get('/user/orders','OrderController@index')->middleware('auth');
+
 
 Route::get('/payment/{id}','PaymentController@show');
 Route::post('/callback/{id}/{status}','PaymentController@callback');
+
+
+

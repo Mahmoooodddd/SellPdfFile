@@ -11,7 +11,7 @@ class Book extends Model
         return $this->belongsTo('App\Author');
     }
 
-    public function orderBook()
+    public function orderBooks()
     {
         return $this->hasMany('App\OrderBook');
     }
