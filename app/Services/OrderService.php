@@ -83,11 +83,24 @@ class OrderService
                 'books' => $books,
             ];
 
-
         }
         return $this->success($finalOrders);
 
+    }
 
+    public function getOrderList($page,$email,$userId,$status)
+    {
+        $orders =$this->orderRepository->getOrdersByPaginations($page,$email,$userId,$status);
+        $data=[];
+        foreach ($orders as $order){
+            $data[]= [
+                'id' => $order->id,
+                'status' => $order->status,
+                'userId'=>$order->user_id,
+                'userEmail' =>$order->userEmail,
+            ];
+        }
+        return $this->success($data);
 
     }
 

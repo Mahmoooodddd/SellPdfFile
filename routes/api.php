@@ -37,4 +37,8 @@ Route::get('/payment/{id}','PaymentController@show');
 Route::post('/callback/{id}/{status}','PaymentController@callback');
 
 
+Route::get('/users','Admin\UserController@index');
+Route::get('/order','Admin\OrderController@index');
+
+
 
