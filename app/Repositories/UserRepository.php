@@ -24,12 +24,12 @@ class UserRepository
 
     public function getUsersByPaginations($page,$name)
     {
+        $users = DB::table('users');
         if ($name!="") {
 
-            User::where('name', 'like', '%' . $name . '%')->skip($page* 10)->take(10)->get();
+            $users->where('name', 'like', '%' . $name . '%');
         }
 
-        $users = DB::table('users')->skip($page* 10)->take(10)->get();
-        return $users;
+        return $users->skip($page* 10)->take(10)->get();
     }
 }

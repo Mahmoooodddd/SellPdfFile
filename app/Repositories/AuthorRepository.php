@@ -26,13 +26,13 @@ class AuthorRepository extends CoreRepository
 
     public function getAuthorsByPaginations($name,$page)
     {
+        $authors = DB::table('authors');
         if ($name!="") {
 
-            Author::where('name', 'like', '%' . $name . '%')->skip($page* 10)->take(10)->get();
+            $authors->where('name', 'like', '%' . $name . '%');
         }
 
-        $authors = DB::table('authors')->skip($page* 10)->take(10)->get();
-        return $authors;
+        return $authors->skip($page* 10)->take(10)->get();
 
     }
 
