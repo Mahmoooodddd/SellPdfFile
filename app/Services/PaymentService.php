@@ -39,9 +39,9 @@ class PaymentService
         return $payment->id;
     }
 
-    public function getPaymentId($paymentId)
+    public function getPaymentById($paymentId)
     {
-        $payment=$this->paymentRepository->getPaymentId($paymentId);
+        $payment=$this->paymentRepository->getPaymentById($paymentId);
 
         $data = [
             'amount' => $payment->amount
@@ -51,7 +51,7 @@ class PaymentService
 
     public function handlePaymentStatus($paymentId,$status)
     {
-        $payment = $this->paymentRepository->getPaymentById($paymentId,$status);
+        $payment = $this->paymentRepository->getPaymentById($paymentId);
 
         if (!$payment) {
 

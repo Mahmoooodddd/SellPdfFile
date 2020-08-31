@@ -17,14 +17,14 @@ class PaymentController extends CoreController
 
     public function show($paymentId)
     {
-        $result =$this->paymentService->getPaymentId($paymentId);
+        $result =$this->paymentService->getPaymentById($paymentId);
          return $this->response($result);
 
     }
 
-    public function callback($paymentId,$status)
+    public function callback($paymentId)
     {
-         $result = $this->paymentService->handlePaymentStatus($paymentId,$status);
+         $result = $this->paymentService->handlePaymentStatus($paymentId);
         return $this->response($result);
     }
 }

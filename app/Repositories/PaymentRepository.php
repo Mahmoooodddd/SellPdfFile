@@ -10,26 +10,26 @@ namespace App\Repositories;
 
 
 use App\Payment;
+use Illuminate\Cache\CacheManager;
 
 class PaymentRepository
 {
     protected $payments;
+    protected $cacheManager;
 
-    public function __construct(Payment $payments)
+
+    public function __construct(Payment $payments,CacheManager $cacheManager)
     {
         $this->payments = $payments;
-
+        $this->cacheManager = $cacheManager;
     }
-    public function getPaymentId($paymentId)
-    {
-        $payment=$this->payments->find($paymentId);
-        return $payment;
-    }
-
 
     public function getPaymentById($paymentId)
     {
-        $payment =$this->payments->find($paymentId);
-        return $payment;
+        $data=$this->cacheManager->remember('payment'.$paymentId,600,function () use ($paymentId) {
+            $payment = $this->payments->find($paymentId);
+            return $payment;
+        });
+        return $data;
     }
 }

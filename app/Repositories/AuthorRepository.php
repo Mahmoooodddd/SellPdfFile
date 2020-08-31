@@ -10,36 +10,43 @@ namespace App\Repositories;
 
 
 use App\Author;
+use Illuminate\Cache\CacheManager;
 use Illuminate\Support\Facades\DB;
 
 class AuthorRepository extends CoreRepository
 {
 
     protected $authors;
+    protected $cacheManager;
 
-    public function __construct(Author $authors)
+
+    public function __construct(Author $authors,CacheManager $cacheManager)
     {
         $this->authors = $authors;
-
+        $this->cacheManager = $cacheManager;
     }
-
 
     public function getAuthorsByPaginations($name,$page)
     {
-        $authors = DB::table('authors');
-        if ($name!="") {
+        $data=$this->cacheManager->remember('authors'.$name.$page,600,function ()use ($name,$page){
+            $authors = DB::table('authors');
+            if ($name!="") {
 
-            $authors->where('name', 'like', '%' . $name . '%');
-        }
+                $authors->where('name', 'like', '%' . $name . '%');
+            }
 
-        return $authors->skip($page* 10)->take(10)->get();
+            return $authors->skip($page* 10)->take(10)->get();
+        });
+        return $data;
 
     }
 
     public function getAuthorById($id)
     {
-        $author = $this->authors->find($id);
-        return $author;
+        $data=$this->cacheManager->remember('authors'.$id,600, function () use($id){
+            return $this->authors::with('books')->find($id);
+        });
+        return $data;
     }
 
 }

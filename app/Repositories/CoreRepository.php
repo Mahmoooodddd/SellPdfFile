@@ -9,7 +9,18 @@
 namespace App\Repositories;
 
 
+
+
+
+use Illuminate\Cache\CacheManager;
+
 class CoreRepository
 {
+    protected $cacheManager;
 
+    public function __construct(CacheManager $cacheManager)
+    {
+        $this->cacheManager = $cacheManager;
+
+    }
 }
