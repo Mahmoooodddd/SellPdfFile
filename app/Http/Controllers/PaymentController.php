@@ -22,9 +22,9 @@ class PaymentController extends CoreController
 
     }
 
-    public function callback($paymentId)
+    public function callback($paymentId,$status)
     {
-         $result = $this->paymentService->handlePaymentStatus($paymentId);
+         $result = $this->paymentService->handlePaymentStatus($paymentId,$status);
         return $this->response($result);
     }
 }

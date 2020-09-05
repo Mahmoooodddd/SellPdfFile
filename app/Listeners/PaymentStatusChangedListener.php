@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\PaymentStatusChangedEvent;
+use App\Services\MailerService;
 use App\Services\OrderService;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -15,10 +16,12 @@ class PaymentStatusChangedListener
      * @return void
      */
     protected $orderService;
+    protected $mailerService;
 
-    public function __construct(OrderService $orderService)
+    public function __construct(OrderService $orderService,MailerService $mailerService)
     {
         $this->orderService = $orderService;
+        $this->mailerService = $mailerService;
     }
 
     /**
@@ -29,8 +32,10 @@ class PaymentStatusChangedListener
      */
     public function handle($event)
     {
-        $order = $event->payment->order;
+        $payment = $event->payment;
+        $order =$payment->order;
         $paymentStatus = $event->payment->status;
         $this->orderService->updateOrderStatus($order,$paymentStatus);
+        $this->mailerService->sendMailToUserForPayment($payment);
     }
 }

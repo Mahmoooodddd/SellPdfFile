@@ -28,7 +28,7 @@ class OrderRepository
     }
     public function getUserOrders($user)
     {
-        $data=$this->cacheManager->remember('orders'.$user,600,function () use($user) {
+        $data=$this->cacheManager->remember('orders'.$user->id,600,function () use($user) {
 
             return $this->orders::where("user_id", $user->id)->with('orderBooks')->get();
         });
